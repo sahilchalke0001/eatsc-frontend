@@ -16,21 +16,21 @@ const formSchema = z.object({
 export type SearchForm = z.infer<typeof formSchema>;
 
 type Props = {
-  onSubmit: (FormData: SearchForm)=> void
+  onSubmit: (formData: SearchForm) => void;
   placeHolder: string;
   onReset?: () => void;
-  searchQuery: string;
-}
+  searchQuery?: string;
+};
 
-const SearchBar = ({onSubmit, onReset, placeHolder, searchQuery}: Props) => {
+const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
   const form = useForm<SearchForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       searchQuery,
-    }
+    },
   });
 
-  useEffect(() =>{
+  useEffect(() => {
     form.reset({ searchQuery });
   }, [form, searchQuery]);
 
@@ -44,44 +44,44 @@ const SearchBar = ({onSubmit, onReset, placeHolder, searchQuery}: Props) => {
     }
   };
 
-  return(
+  return (
     <Form {...form}>
-      <form 
+      <form
         onSubmit={form.handleSubmit(onSubmit)}
         className={`flex items-center gap-3 justify-between flex-row border-2 rounded-full p-3 ${
           form.formState.errors.searchQuery && "border-red-500"
         }`}
       >
-        <Search 
-          strokeWidth={2.5} 
-          size={30} 
-          className="ml-1 text-red-500 hidden md:block"
+        <Search
+          strokeWidth={2.5}
+          size={30}
+          className="ml-1 text-orange-500 hidden md:block"
         />
-        <FormField 
+        <FormField
           control={form.control}
           name="searchQuery"
           render={({ field }) => (
-          <FormItem className="flex-1">
-            <FormControl>
-              <Input 
-                {...field}
-                className="border-none shadow-none text-xl focus-visible:ring-0"
+            <FormItem className="flex-1">
+              <FormControl>
+                <Input
+                  {...field}
+                  className="border-none shadow-none text-xl focus-visible:ring-0"
                   placeholder={placeHolder}
-              />
-            </FormControl>
-        </FormItem>
-        )}
+                />
+              </FormControl>
+            </FormItem>
+          )}
         />
 
-        <Button  
-          onClick={handleReset} 
-          type="button" 
-          variant="outline" 
+        <Button
+          onClick={handleReset}
+          type="button"
+          variant="outline"
           className="rounded-full"
         >
           Reset
         </Button>
-        <Button type="submit" className="rounded-full bg-red-500">
+        <Button type="submit" className="rounded-full bg-orange-500">
           Search
         </Button>
       </form>
