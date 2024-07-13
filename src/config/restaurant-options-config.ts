@@ -3,5 +3,10 @@ export const cuisineList = [
   "Non-Veg",
   "Main-Course",
   "Starters",
-  "Dessert",
+  "Desserts",
+  "Beverage",
+  "Juice",
+  "Breakfast",
+  "Chicken",
+  "Fish"
 ];
