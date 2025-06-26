@@ -1,30 +1,82 @@
-# React + TypeScript + Vite
+# EatsC – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend of **EatSC**, a full-stack food ordering platform that provides users with an intuitive interface to explore restaurant menus, manage their orders, and complete secure transactions. It is built using **React** and connects to a backend powered by **Node.js**, **Express**, and **MongoDB**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Site
 
-## Expanding the ESLint configuration
+**URL:** [https://eatsc-frontendrs.onrender.com](https://eatsc-frontendrs.onrender.com)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Domo_image](https://github.com/user-attachments/assets/b88f3fcd-2752-4024-b877-87b57f54c89f)
+---
 
-- Configure the top-level `parserOptions` property like this:
+###  Homepage
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Fetches dish listings from MongoDB via backend APIs.
+- Each dish displays a name, price, image, and an “Add to Cart” option.
+- Clicking a dish reveals detailed information and quantity selection.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+###  Cart System
+
+- Cart is managed globally using React Context API.
+- Users can add or remove items and adjust quantities.
+- The cart summary dynamically calculates subtotals and total cost.
+
+###  User Authentication
+
+- Integrated with Auth0 for secure login and logout.
+- Authenticated users have a persistent session and access to checkout.
+
+###  Checkout & Payments
+
+- Users can proceed to checkout after logging in.
+- Stripe is integrated for secure payment handling.
+- After payment, users are redirected to an order success screen.
+
+###  Live Order Tracking
+
+- After placing an order, users can **view the real-time status** of their order.
+- Status updates (e.g., "Order Placed", "Preparing", "Out for Delivery") are dynamically shown.
+- Data is fetched from MongoDB, which stores order metadata and status updates.
+
+---
+
+##  Architecture
+
+- **Frontend**: React, Tailwind CSS, React Router, Axios
+- **State Management**: React Context API for cart and auth state
+- **Authentication**: Auth0
+- **Payments**: Stripe
+- **Media**: Cloudinary (handled via backend)
+- **Backend**: Node.js + Express
+- **Database**: MongoDB (orders, dishes, and user metadata)
+
+---
+
+##  Highlights
+
+- Modern, responsive UI
+- Clean navigation and fast loading experience
+- Seamless user flow: browse → cart → authenticate → checkout → track order
+- Realtime feedback on order lifecycle
+- Backend interaction designed for scalability and separation of concerns
+
+---
+
+##  Main Asspects
+
+This project showcases:
+
+- Proficiency in building production-ready React applications
+- Integration of third-party services like Auth0, Stripe, and Cloudinary
+- RESTful API consumption and async data handling
+- Real-time order tracking using persistent data from MongoDB
+- Clean component structure and maintainable frontend architecture
+
+---
+
+## License
+
+This project is intended for demonstration and educational purposes.
+
