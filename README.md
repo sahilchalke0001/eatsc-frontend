@@ -1,6 +1,5 @@
 # Red Hibiscus
-
-This is the frontend of **EatsC**, a full-stack food ordering platform where customers can explore restaurant menus, place orders, and track them live. Restaurants can register, upload menu items, and manage incoming orders. Built with **React**, the frontend interacts with a **Node.js**, **Express**, and **MongoDB** backend.
+**Red Hibiscus**, a full-stack food ordering platform where customers can explore restaurant menus, place orders, and track them live. Restaurants can register, upload menu items, and manage incoming orders. Built with **React**, the frontend interacts with a **Node.js**, **Express**, and **MongoDB** backend.
 
 ---
 
